@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Carta de Amor - Sahori & Daan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            font-family: 'Lora', serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .header-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        .cursive-font {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        /* Container layout with unlimited height expansion */
+        .page-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            height: auto;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: visible;
+        }
+
+        /* Left Floral Border Styling */
+        .floral-border-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 130px;
+            max-width: 30vw;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen h-auto overflow-y-auto">
+
+    <div class="page-wrapper relative min-h-screen h-auto pt-3 sm:pt-4 pb-20">
+
+        <div class="w-full flex flex-col items-end justify-center z-20 mb-3 px-4 sm:px-6">
+            
+            <!-- 1. Date at the top right -->
+            <div class="w-full max-w-md text-right text-zinc-700 font-serif text-xs sm:text-sm mb-2 pr-2 select-none">
+                18 de Enero
+            </div>
+
+            <!-- 2. Grayscale Lotus Flower centered above the title block -->
+            <div class="w-full flex justify-end pr-6 mb-1">
+                <svg class="w-7 h-7 sm:w-8 sm:h-8 drop-shadow-sm inline-block" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="lotusDark" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#52525b"/>
+                            <stop offset="100%" stop-color="#18181b"/>
+                        </linearGradient>
+                        <linearGradient id="lotusLight" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff"/>
+                            <stop offset="100%" stop-color="#a1a1aa"/>
+                        </linearGradient>
+                        <linearGradient id="lotusMid" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#d4d4d8"/>
+                            <stop offset="100%" stop-color="#3f3f46"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M50 75 C30 75 10 65 5 48 C20 48 35 55 50 75 Z" fill="url(#lotusDark)" stroke="#27272a" stroke-width="0.8"/>
+                    <path d="M50 75 C70 75 90 65 95 48 C80 48 65 55 50 75 Z" fill="url(#lotusDark)" stroke="#27272a" stroke-width="0.8"/>
+                    <path d="M50 75 C25 70 12 50 20 32 C32 45 42 60 50 75 Z" fill="url(#lotusMid)" stroke="#3f3f46" stroke-width="0.8"/>
+                    <path d="M50 75 C75 70 88 50 80 32 C68 45 58 60 50 75 Z" fill="url(#lotusMid)" stroke="#3f3f46" stroke-width="0.8"/>
+                    <path d="M50 75 C35 60 25 38 35 20 C45 35 48 55 50 75 Z" fill="url(#lotusLight)" stroke="#52525b" stroke-width="0.8"/>
+                    <path d="M50 75 C65 60 75 38 65 20 C55 35 52 55 50 75 Z" fill="url(#lotusLight)" stroke="#52525b" stroke-width="0.8"/>
+                    <path d="M50 78 C42 58 40 30 50 12 C60 30 58 58 50 78 Z" fill="url(#lotusLight)" stroke="#71717a" stroke-width="0.8"/>
+                    <ellipse cx="50" cy="76" rx="14" ry="3" fill="#18181b"/>
+                </svg>
+            </div>
+
+            <!-- 3. Header Title SAHORI & DAAN -->
+            <header class="w-full text-right pr-1">
+                <h1 class="header-font text-zinc-900 text-sm sm:text-lg md:text-xl font-bold tracking-[0.15em] uppercase select-none flex flex-col items-end">
+                    <span class="block">SAHORI &amp; DAAN</span>
+                </h1>
+            </header>
+        </div>
+
+        <div class="z-30 my-1 px-3 w-full flex justify-end pr-3 sm:pr-6">
+            <div class="bg-zinc-50/95 border border-zinc-200/90 rounded-full py-1 px-3 shadow-sm flex items-center justify-center gap-2.5 w-auto text-zinc-800">
+                
+                <!-- Play/Pause Interactive Button -->
+                <button id="playBtn" onclick="togglePlay()" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-zinc-800 hover:bg-zinc-700 text-white flex items-center justify-center transition-all transform hover:scale-105 active:scale-95 focus:outline-none shrink-0 cursor-pointer shadow-sm" aria-label="Play or Pause">
+                    <svg id="playIcon" class="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <svg id="pauseIcon" class="w-3.5 h-3.5 fill-current hidden" viewBox="0 0 24 24">
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                    </svg>
+                </button>
+
+                <!-- Musical Decorative Icon and Label -->
+                <div class="flex items-center gap-1.5 select-none pr-1">
+                    <svg class="w-3 h-3 text-zinc-700 fill-current opacity-80" viewBox="0 0 24 24">
+                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                    </svg>
+                    <span class="text-xs sm:text-sm font-serif italic font-medium text-zinc-700 tracking-wide">
+                        Te quiero tanto - Kevin Kaarl
+                    </span>
+                </div>
+
+                <!-- Hidden YouTube IFrame Player -->
+                <div class="hidden">
+                    <div id="yt-player"></div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var player;
+            var isPlaying = false;
+
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player('yt-player', {
+                    height: '0',
+                    width: '0',
+                    videoId: 'q07Gd6Q-7dY', // Kevin Kaarl - te quiero tanto
+                    playerVars: {
+                        'playsinline': 1,
+                        'controls': 0,
+                        'showinfo': 0,
+                        'rel': 0,
+                        'autoplay': 0
+                    },
+                    events: {
+                        'onReady': onPlayerReady,
+                        'onStateChange': onPlayerStateChange
+                    }
+                });
+            }
+
+            function onPlayerReady(event) {
+                // Player is ready
+            }
+
+            function togglePlay() {
+                if (!player || typeof player.playVideo !== 'function') return;
+                if (isPlaying) {
+                    player.pauseVideo();
+                } else {
+                    player.playVideo();
+                }
+            }
+
+            function onPlayerStateChange(event) {
+                var playIcon = document.getElementById('playIcon');
+                var pauseIcon = document.getElementById('pauseIcon');
+
+                if (event.data == YT.PlayerState.PLAYING) {
+                    isPlaying = true;
+                    playIcon.classList.add('hidden');
+                    pauseIcon.classList.remove('hidden');
+                } else {
+                    isPlaying = false;
+                    playIcon.classList.remove('hidden');
+                    pauseIcon.classList.add('hidden');
+                }
+            }
+        </script>
+
+        <svg class="floral-border-left" viewBox="0 0 300 1000" preserveAspectRatio="xMinYMin slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="petalDark" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#27272a"/>
+                    <stop offset="60%" stop-color="#52525b"/>
+                    <stop offset="100%" stop-color="#71717a"/>
+                </linearGradient>
+                <linearGradient id="petalLight" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#ffffff"/>
+                    <stop offset="50%" stop-color="#f4f4f5"/>
+                    <stop offset="100%" stop-color="#a1a1aa"/>
+                </linearGradient>
+                <linearGradient id="petalMid" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#a1a1aa"/>
+                    <stop offset="70%" stop-color="#52525b"/>
+                    <stop offset="100%" stop-color="#27272a"/>
+                </linearGradient>
+                <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.15"/>
+                </filter>
+            </defs>
+
+            <!-- GROUP OF FLOWERS - CASCADING DOWN THE LEFT SIDE -->
+            <g transform="translate(-20, 10) scale(0.9)">
+                <circle cx="80" cy="30" r="14" fill="url(#petalLight)" stroke="#3f3f46" stroke-width="0.8"/>
+                <circle cx="110" cy="40" r="18" fill="url(#petalLight)" stroke="#3f3f46" stroke-width="0.8"/>
+                <circle cx="60" cy="55" r="16" fill="url(#petalMid)" stroke="#27272a" stroke-width="0.8"/>
+                <circle cx="95" cy="70" r="22" fill="url(#petalLight)" stroke="#3f3f46" stroke-width="0.8"/>
+                <circle cx="130" cy="25" r="12" fill="url(#petalDark)" stroke="#18181b" stroke-width="0.8"/>
+            </g>
+
+            <g transform="translate(10, 110) scale(1.1)">
+                <path d="M50,40 Q20,10 50,-10 Q80,10 50,40 Z" fill="url(#petalDark)" stroke="#18181b"/>
+                <path d="M50,40 Q10,30 0,60 Q20,90 50,40 Z" fill="url(#petalMid)" stroke="#18181b"/>
+                <path d="M50,40 Q90,30 100,60 Q80,90 50,40 Z" fill="url(#petalDark)" stroke="#18181b"/>
+                <path d="M50,40 Q20,80 50,100 Q80,80 50,40 Z" fill="url(#petalMid)" stroke="#18181b"/>
+                <circle cx="50" cy="40" r="6" fill="#09090b"/>
+            </g>
+
+            <g transform="translate(0, 220) scale(1.2)">
+                <path d="M60,50 Q10,10 40,-20 Q80,0 60,50 Z" fill="url(#petalLight)" stroke="#52525b" stroke-width="0.8"/>
+                <path d="M60,50 Q0,40 -20,70 Q20,100 60,50 Z" fill="url(#petalLight)" stroke="#52525b" stroke-width="0.8"/>
+                <path d="M60,50 Q100,20 120,60 Q90,100 60,50 Z" fill="url(#petalLight)" stroke="#71717a" stroke-width="0.8"/>
+                <path d="M60,50 Q20,100 50,120 Q90,110 60,50 Z" fill="url(#petalLight)" stroke="#52525b" stroke-width="0.8"/>
+                <path d="M60,50 Q90,30 110,25" stroke="#27272a" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="110" cy="25" r="3" fill="#18181b"/>
+                <circle cx="105" cy="22" r="2" fill="#18181b"/>
+            </g>
+
+            <g transform="translate(-30, 420) scale(1.35)" filter="url(#shadow)">
+                <path d="M80,80 Q20,30 10,70 Q40,110 80,80 Z" fill="url(#petalMid)" stroke="#27272a" stroke-width="0.8"/>
+                <path d="M80,80 Q140,20 170,50 Q130,100 80,80 Z" fill="url(#petalLight)" stroke="#52525b" stroke-width="0.8"/>
+                <path d="M80,80 Q110,150 70,160 Q40,130 80,80 Z" fill="url(#petalMid)" stroke="#27272a" stroke-width="0.8"/>
+                <path d="M80,80 Q20,0 70,-20 Q100,30 80,80 Z" fill="url(#petalLight)" stroke="#71717a" stroke-width="0.8"/>
+                <path d="M80,80 Q130,80 180,110 Q110,140 80,80 Z" fill="url(#petalLight)" stroke="#71717a" stroke-width="0.8"/>
+                <path d="M80,80 Q10,100 -20,120 Q20,140 80,80 Z" fill="url(#petalLight)" stroke="#52525b" stroke-width="0.8"/>
+                <path d="M80,80 Q100,50 115,40" stroke="#18181b" stroke-width="1.5" stroke-dasharray="2,2"/>
+                <path d="M80,80 Q110,75 135,75" stroke="#18181b" stroke-width="1.5"/>
+                <circle cx="135" cy="75" r="2.5" fill="#000000"/>
+                <path d="M80,80 Q95,100 110,120" stroke="#18181b" stroke-width="1.5"/>
+                <circle cx="110" cy="120" r="2.5" fill="#000000"/>
+            </g>
+
+            <g transform="translate(140, 580) scale(0.8)">
+                <circle cx="30" cy="30" r="16" fill="url(#petalLight)" stroke="#71717a"/>
+                <circle cx="65" cy="50" r="18" fill="url(#petalLight)" stroke="#71717a"/>
+                <circle cx="100" cy="80" r="14" fill="url(#petalLight)" stroke="#71717a"/>
+            </g>
+
+            <g transform="translate(60, 700) scale(1.25)">
+                <path d="M60,60 Q10,20 40,-10 Q90,10 60,60 Z" fill="url(#petalDark)" stroke="#18181b"/>
+                <path d="M60,60 Q0,50 -20,80 Q30,110 60,60 Z" fill="url(#petalDark)" stroke="#18181b"/>
+                <path d="M60,60 Q110,30 130,70 Q90,110 60,60 Z" fill="url(#petalMid)" stroke="#18181b"/>
+                <path d="M60,60 Q20,110 60,130 Q100,110 60,60 Z" fill="url(#petalDark)" stroke="#18181b"/>
+                <path d="M60,60 Q95,20 120,15" stroke="#e4e4e7" stroke-width="2"/>
+                <circle cx="120" cy="15" r="3" fill="#ffffff"/>
+            </g>
+
+            <g transform="translate(-40, 780) scale(1.4)" filter="url(#shadow)">
+                <path d="M70,70 Q20,20 50,-10 Q100,20 70,70 Z" fill="url(#petalLight)" stroke="#52525b" stroke-width="0.8"/>
+                <path d="M70,70 Q0,60 -20,100 Q40,120 70,70 Z" fill="url(#petalLight)" stroke="#52525b" stroke-width="0.8"/>
+                <path d="M70,70 Q120,40 140,80 Q100,120 70,70 Z" fill="url(#petalLight)" stroke="#71717a" stroke-width="0.8"/>
+                <path d="M70,70 Q30,120 70,140 Q110,120 70,70 Z" fill="url(#petalLight)" stroke="#52525b" stroke-width="0.8"/>
+                <path d="M70,70 Q40,110 30,125" stroke="#27272a" stroke-width="2"/>
+                <circle cx="30" cy="125" r="3" fill="#18181b"/>
+            </g>
+
+            <g transform="translate(60, 900) scale(0.9)">
+                <path d="M40,40 Q10,10 30,-10 Q60,10 40,40 Z" fill="url(#petalLight)" stroke="#3f3f46"/>
+                <path d="M40,40 Q0,30 -10,50 Q20,70 40,40 Z" fill="url(#petalMid)" stroke="#27272a"/>
+                <path d="M40,40 Q70,20 80,50 Q60,70 40,40 Z" fill="url(#petalLight)" stroke="#3f3f46"/>
+                <path d="M40,40 Q20,70 40,80 Q60,70 40,40 Z" fill="url(#petalDark)" stroke="#18181b"/>
+            </g>
+        </svg>
+
+        <main class="w-full max-w-xl pl-32 sm:pl-44 pr-4 sm:pr-8 py-3 z-20 flex flex-col justify-start h-auto">
+            <div class="space-y-4 text-zinc-800 leading-relaxed font-serif text-left">
+                <p class="text-sm sm:text-base">
+                    Quiero que sepas que eres el amor de mi vida, y no te lo digo solamente por decirte algo bonito, te lo digo porque de verdad lo siento, desde que llegaste a mi vida, hace 271 días, te has convertido en una de las cosas más bonitas que me han pasado, no sabes lo feliz que me hace tenerte y saber que eres mi mujer.
+                </p>
+
+                <p class="text-sm sm:text-base">
+                    Me hace mucha ilusión pensar en todo lo que nos falta por vivir, en cómo vamos a crecer juntos y en los recuerdos que todavía nos quedan.
+                </p>
+
+                <p class="text-sm sm:text-base">
+                    Sé que no todo será perfecto, pero quiero que siempre tengamos las ganas de entendernos, aprender de nuestros errores y cuidar lo que tenemos.
+                </p>
+
+                <p class="text-sm sm:text-base">
+                    Gracias por llegar a mi vida y hacerme sentir algo tan bonito, quizá a veces me cueste explicar todo lo que pasa por mi cabeza cuando pienso en ti, pero no te cambiaría por nadie.
+                </p>
+
+                <p class="text-sm sm:text-base">
+                    Te volvería a elegir una y mil veces y seguiré teniendo la certeza de que eres tú con quien quiero escribir el resto de mi vida.
+                </p>
+
+                <p class="text-sm sm:text-base font-medium pt-2">
+                    Te amo muchísimo mi niña 🪷💗
+                </p>
+            </div>
+
+            <!-- Primera Línea Divisora -->
+            <hr class="my-8 border-t border-zinc-200">
+
+            <!-- 100 Razones Para Amarte -->
+            <div class="my-6 p-4 sm:p-6 bg-zinc-50/80 rounded-2xl border border-zinc-200/80 shadow-inner overflow-visible">
+                <h2 class="header-font text-center text-base sm:text-xl font-bold text-zinc-900 tracking-wider mb-6 uppercase">
+                    100 Razones Para Amarte 🪷
+                </h2>
+                
+                <ol class="grid grid-cols-1 gap-y-2.5 text-xs sm:text-sm text-zinc-700 font-serif">
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">1.</span> Tu forma de ser</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">2.</span> Tu sonrisa</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">3.</span> Tu manera de ver la vida</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">4.</span> Tu forma de expresarte</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">5.</span> Tu mirada</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">6.</span> Tu esencia</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">7.</span> Tu pelo</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">8.</span> Tu personalidad</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">9.</span> Tu actitud</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">10.</span> Tu lealtad</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">11.</span> Tu paciencia</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">12.</span> Tu manera de escuchar</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">13.</span> Tu manera de hablar</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">14.</span> Tu manera de entenderme</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">15.</span> Tu inteligencia</li>
+                   <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">16.</span> Tu amabilidad</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">17.</span> Tu madurez</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">18.</span> Tu corazón</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">19.</span> Tu manera de demostrar amor</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">20.</span> Tu forma de hacerme feliz</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">21.</span> La confianza que siento cuando hablo contigo</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">22.</span> Tus muestras de cariño</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">23.</span> Cómo me haces reír</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">24.</span> Cómo me amas</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">25.</span> Cómo me haces sentir especial</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">26.</span> Cómo me entiendes</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">27.</span> Tu sinceridad</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">28.</span> Tu energía</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">29.</span> Lo hermosa que eres por dentro</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">30.</span> Lo única que eres</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">31.</span> Cómo estás para mí cuando te necesito</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">32.</span> Me haces olvidar de todo lo malo</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">33.</span> Tu risa</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">34.</span> La confianza que tienes conmigo</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">35.</span> El cariño que le tienes a tu familia</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">36.</span> Me ayudas siempre</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">37.</span> Eres simpática</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">38.</span> Eres una buena persona</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">39.</span> La forma en que haces especial cada momento</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">40.</span> Cómo me motivas a ser mejor</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">41.</span> Tu manera de demostrar ternura</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">42.</span> La paz que me transmites</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">43.</span> Me haces mejor persona</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">44.</span> Tus defectos, porque también forman parte de ti</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">45.</span> Tus cualidades</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">46.</span> Tu felicidad</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">47.</span> Tu amor</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">48.</span> La forma en que expresas tus enojos</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">49.</span> Tu seriedad cuando algo te importa</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">50.</span> Tu sensibilidad</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">51.</span> Tu carácter</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">52.</span> La forma en que me miras</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">53.</span> Tus valores</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">54.</span> La confianza que me das</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">55.</span> Tus acciones</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">56.</span> Tus chistes</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">57.</span> Tus burlas que me hacen reír</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">58.</span> Tu vergüenza cuando te pones tímida</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">59.</span> Tus sueños</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">60.</span> Tus promesas</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">61.</span> Nuestra conexión</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">62.</span> Tu voz</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">63.</span> Tu forma de vestir</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">64.</span> Todo lo que me enseñas</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">65.</span> Tus gestos</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">66.</span> Lo comprensiva que eres</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">67.</span> Lo atenta que eres</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">68.</span> Tu timidez</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">69.</span> Lo dormilona que eres</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">70.</span> Lo detallista que eres</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">71.</span> Lo entretenida que eres</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">72.</span> Tu apoyo incondicional</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">73.</span> Tu sentido del humor</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">74.</span> Eres de lo mejor que tengo</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">75.</span> Eres la mujer que más amo</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">76.</span> La forma en que te emocionas</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">77.</span> Tus logros</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">78.</span> Tus expresiones</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">79.</span> La alegría que llevas contigo</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">80.</span> Los momentos que compartimos hablando</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">81.</span> La emoción que siento cuando recibo un mensaje tuyo</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">82.</span> La ilusión de imaginar nuestro futuro</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">83.</span> La confianza que me das para contarte mis miedos</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">84.</span> Tus metas</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">85.</span> Tu forma de expresarte</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">86.</span> Tu creatividad</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">87.</span> Tu locura</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">88.</span> La forma tan especial en que ves el mundo</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">89.</span> Tu inocencia</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">90.</span> La atención que me das</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">91.</span> Tu brillo como persona</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">92.</span> Tu afecto</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">93.</span> Tu compañía, incluso a la distancia</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">94.</span> Tu lado amoroso</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">95.</span> La ternura de tus palabras</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">96.</span> Tu preocupación por mí</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">97.</span> Cómo resolvemos nuestras discusiones</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">98.</span> Nuestras locuras juntos</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">99.</span> Todo lo que eres</li>
+                    <li class="flex items-baseline gap-2"><span class="font-bold text-zinc-900 min-w-[1.75rem] text-right">100.</span> TÚ, simplemente tú</li>
+                </ol>
+            </div>
+
+            <!-- Segunda Línea Divisora al final -->
+            <hr class="my-8 border-t border-zinc-200">
+
+            <!-- 3. Constellation Section: Lotus Flower -->
+            <div class="my-8 flex flex-col items-center justify-center">
+                <div class="relative w-full max-w-lg h-72 sm:h-80 bg-zinc-950 rounded-2xl shadow-xl border border-zinc-800 overflow-hidden flex items-center justify-center">
+                    <canvas id="constellationCanvas" class="w-full h-full cursor-pointer"></canvas>
+                </div>
+            </div>
+
+            <hr class="my-8 border-t border-zinc-200">
+
+            <!-- 4. January 2026 Calendar Section -->
+            <div class="my-6 p-6 sm:p-8 bg-zinc-50/90 rounded-2xl border border-zinc-200 shadow-inner flex flex-col items-center">
+                <h3 class="header-font text-center text-lg sm:text-xl font-bold text-zinc-900 tracking-widest uppercase mb-4">
+                    Enero 2026 🪷
+                </h3>
+
+                <div class="w-full max-w-xs font-serif text-zinc-800">
+                    <!-- Days of Week Header (Single-letter abbreviations) -->
+                    <div class="grid grid-cols-7 gap-1 text-center font-semibold text-xs text-zinc-500 uppercase tracking-wider mb-2">
+                        <span>D</span>
+                        <span>L</span>
+                        <span>M</span>
+                        <span>M</span>
+                        <span>J</span>
+                        <span>V</span>
+                        <span>S</span>
+                    </div>
+
+                    <!-- Calendar Grid for January 2026 -->
+                    <div class="grid grid-cols-7 gap-y-2 gap-x-1 text-center text-sm font-medium">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        
+                        <div class="py-1">1</div>
+                        <div class="py-1">2</div>
+                        <div class="py-1">3</div>
+                        <div class="py-1">4</div>
+                        <div class="py-1">5</div>
+                        <div class="py-1">6</div>
+                        <div class="py-1">7</div>
+                        <div class="py-1">8</div>
+                        <div class="py-1">9</div>
+                        <div class="py-1">10</div>
+                        <div class="py-1">11</div>
+                        <div class="py-1">12</div>
+                        <div class="py-1">13</div>
+                        <div class="py-1">14</div>
+                        <div class="py-1">15</div>
+                        <div class="py-1">16</div>
+                        <div class="py-1">17</div>
+
+                        <!-- Day 18 wrapped in a Heart -->
+                        <div class="relative flex items-center justify-center py-1 font-bold text-zinc-900 select-none">
+                            <svg class="absolute w-8 h-8 text-zinc-800 drop-shadow-sm pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                            <span class="relative z-10 text-xs font-bold">18</span>
+                        </div>
+
+                        <div class="py-1">19</div>
+                        <div class="py-1">20</div>
+                        <div class="py-1">21</div>
+                        <div class="py-1">22</div>
+                        <div class="py-1">23</div>
+                        <div class="py-1">24</div>
+                        <div class="py-1">25</div>
+                        <div class="py-1">26</div>
+                        <div class="py-1">27</div>
+                        <div class="py-1">28</div>
+                        <div class="py-1">29</div>
+                        <div class="py-1">30</div>
+                        <div class="py-1">31</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final Divider line at the very bottom -->
+            <hr class="mt-8 mb-12 border-t border-zinc-200">
+
+        </main>
+
+    </div>
+
+    <script>
+        // LOTUS FLOWER CONSTELLATION ANIMATION LOGIC
+        window.addEventListener('load', function () {
+            const canvas = document.getElementById('constellationCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            let width, height;
+            let stars = [];
+            let progress = 0;
+            let assembling = true;
+
+            const lotusTargetCoords = [
+                {x: 0, y: 0.35},
+                {x: -0.2, y: 0.35},
+                {x: 0.2, y: 0.35},
+                {x: 0, y: -0.38},
+                {x: -0.08, y: -0.15},
+                {x: 0.08, y: -0.15},
+                {x: -0.12, y: 0.12},
+                {x: 0.12, y: 0.12},
+                {x: -0.25, y: -0.22},
+                {x: -0.28, y: 0.05},
+                {x: -0.15, y: 0.25},
+                {x: 0.25, y: -0.22},
+                {x: 0.28, y: 0.05},
+                {x: 0.15, y: 0.25},
+                {x: -0.42, y: -0.05},
+                {x: -0.45, y: 0.18},
+                {x: -0.28, y: 0.32},
+                {x: 0.42, y: -0.05},
+                {x: 0.45, y: 0.18},
+                {x: 0.28, y: 0.32},
+                {x: 0, y: 0.45}
+            ];
+
+            const linePairs = [
+                [3, 4], [4, 6], [6, 0], [0, 7], [7, 5], [5, 3], [4, 5],
+                [3, 8], [8, 9], [9, 10], [10, 0], [6, 8],
+                [3, 11], [11, 12], [12, 13], [13, 0], [7, 11],
+                [8, 14], [14, 15], [15, 16], [16, 1], [1, 10],
+                [11, 17], [17, 18], [18, 19], [19, 2], [2, 13],
+                [1, 0], [0, 2], [0, 20]
+            ];
+
+            function resizeCanvas() {
+                const rect = canvas.getBoundingClientRect();
+                width = canvas.width = rect.width;
+                height = c                
